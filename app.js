@@ -5,13 +5,17 @@ const heroes = [
         name: 'Marc',
         type: 'ninja',
         damage: 5,
-        health: 68
+        health: 68,
+        maxHealth: 68,
+        gold: 20
     },
     {
         name: 'Rhys',
         type: 'wizard',
         damage: 10,
-        health: 44
+        health: 44,
+        maxHealth: 44,
+        gold: 20
     }
 ]
 
@@ -21,6 +25,7 @@ const boss = {
     damage: 5,
     level: 1
 }
+
 
 
 // SECTION functions
@@ -80,6 +85,31 @@ function levelUpBoss() {
 
 
 }
+
+function addGold(heroName) {
+    heroes.find(hero => hero.name == heroName)
+    console.log(hero.name)
+    if (hero.gold >= 10) {
+        hero.health = hero.maxHealth
+        drawHeroHealth()
+    }
+    // console.log('we working', hero.maxHealth)
+    drawGold()
+}
+
+function drawGold() {
+    const rhysGoldElem = document.getElementById('rhysGold')
+    const marcGoldElem = document.getElementById('marcGold')
+    const rhysGold = heroes[1].gold
+    const marcGold = heroes[0.].gold
+
+    rhysGoldElem.innerText = rhysGold
+    marcGoldElem.innerText = marcGold
+}
+
+
+
+
 
 // !SECTION
 
